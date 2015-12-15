@@ -49,6 +49,16 @@ public class BinaryTree {
         }
     }
 
+    public static void main(String[] args) {
+        BinaryTree bt = new BinaryTree(new int[]{1,2,3,4,5,6,7,8});
+        bt.inorder();
+        bt.preorder();
+        bt.layerorder();
+        bt.preorderNoRecursion();
+        bt.inorderNoRecursion();
+        bt.postorderNoRecursion();
+        System.out.println("深度为：" + bt.getDepth());
+    }
 
 
     //递归中序遍历
@@ -186,16 +196,6 @@ public class BinaryTree {
 
     }
 
-    public static void main(String[] args) {
-        BinaryTree bt = new BinaryTree(new int[]{1,2,3,4,5,6,7,8});
-        bt.inorder();
-        bt.preorder();
-        bt.layerorder();
-        bt.preorderNoRecursion();
-        bt.inorderNoRecursion();
-        bt.postorderNoRecursion();
-        System.out.println("深度为：" + bt.getDepth());
-    }
 }
 
 class Node<V>{
