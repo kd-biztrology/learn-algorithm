@@ -11,8 +11,6 @@ public class Node<V> {
     public Node() {
     }
 
-    ;
-
     public Node(V value) {
         this.value = value;
         leftChild = null;
