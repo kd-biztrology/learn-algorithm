@@ -13,13 +13,8 @@ public class BinaryTree {
     //二叉树中节点数量
     private int size;
 
-    //无参构造器
-    public BinaryTree() {
-        root = new Node<Integer>();
-    }
-
     //数组构造器
-    public BinaryTree(int[] values) {
+    private BinaryTree(int[] values) {
         System.out.print("新建binaryTree:");
         for (int i : values) {
             System.out.print(i);
@@ -29,13 +24,13 @@ public class BinaryTree {
         int len = values.length;
         if (len == 0)
             return ;
-        LinkedList<Node<Integer>> queue = new LinkedList<Node<Integer>>();
-        root = new Node<Integer>(values[0]);
+        LinkedList<Node<Integer>> queue = new LinkedList<>();
+        root = new Node<>(values[0]);
         queue.addLast(root);
-        Node parent = null;
-        Node current = null;
+        Node<Integer> parent ;
+        Node<Integer> current;
         for (int i=1; i<len; i++) {
-            current = new Node<Integer>(values[i]);
+            current = new Node<>(values[i]);
             queue.addLast(current);
             if (isLeft)
                 parent = queue.getFirst();
@@ -64,18 +59,18 @@ public class BinaryTree {
 
 
     //递归中序遍历
-    public void inorder() {
+    private void inorder() {
         System.out.print("binaryTree递归中序遍历:");
         inorderTraverseRecursion(root);
         System.out.println();
     }
 
     //层次遍历
-    public void layerorder() {
+    private void layerorder() {
         System.out.print("binaryTree层次遍历:");
-        LinkedList<Node<Integer>> queue = new LinkedList<Node<Integer>>();
+        LinkedList<Node<Integer>> queue = new LinkedList<>();
         queue.addLast(root);
-        Node<Integer> current = null;
+        Node<Integer> current;
         while(!queue.isEmpty()) {
             current = queue.removeFirst();
             if (current.getLeftChild() != null)
@@ -89,7 +84,7 @@ public class BinaryTree {
 
 
     //获得二叉树深度
-    public int getDepth() {
+    private int getDepth() {
         return getDepthRecursion(root);
     }
 
@@ -102,7 +97,7 @@ public class BinaryTree {
         return maxlen + 1;
     }
     //递归先序遍历
-    public void preorder() {
+    private void preorder() {
         System.out.print("binaryTree递归先序遍历:");
         preorderTraverseRecursion(root);
         System.out.println();
@@ -129,11 +124,11 @@ public class BinaryTree {
     }
 
     //非递归先序遍历
-    public void preorderNoRecursion() {
+    private void preorderNoRecursion() {
         System.out.print("binaryTree非递归先序遍历:");
-        LinkedList<Node<Integer>> stack = new LinkedList<Node<Integer>>();
+        LinkedList<Node<Integer>> stack = new LinkedList<>();
         stack.push(root);
-        Node<Integer> current = null;
+        Node<Integer> current;
         while (!stack.isEmpty()) {
             current = stack.pop();
             System.out.print(current.getValue());
@@ -149,9 +144,9 @@ public class BinaryTree {
      * 非递归中序遍历
      * 栈内保存将要访问的元素
      */
-    public void inorderNoRecursion() {
+    private void inorderNoRecursion() {
         System.out.print("binaryTree非递归中序遍历:");
-        LinkedList<Node<Integer>> stack = new LinkedList<Node<Integer>>();
+        LinkedList<Node<Integer>> stack = new LinkedList<>();
         Node<Integer> current = root;
         while (current != null || !stack.isEmpty()) {
             while(current != null) {
@@ -172,11 +167,11 @@ public class BinaryTree {
 
      * 当上一个访问的结点是右孩子或者当前结点没有右孩子则访问当前结点
      */
-    public void postorderNoRecursion() {
+    private void postorderNoRecursion() {
         System.out.print("binaryTree非递归后序遍历:");
         Node<Integer> rNode = null;
         Node<Integer> current = root;
-        LinkedList<Node<Integer>> stack = new LinkedList<Node<Integer>>();
+        LinkedList<Node<Integer>> stack = new LinkedList<>();
         while(current != null || !stack.isEmpty()) {
             while(current != null) {
                 stack.push(current);
@@ -193,7 +188,7 @@ public class BinaryTree {
                 current = stack.pop();
             }
             stack.push(current);
-            current = current.getRightChild();
+            current = current != null ? current.getRightChild() : null;
         }
 
     }
