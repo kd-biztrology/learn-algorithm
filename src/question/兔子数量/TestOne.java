@@ -1,4 +1,4 @@
-package question;
+package question.兔子数量;
 
 /**
  * Created by kevin.
