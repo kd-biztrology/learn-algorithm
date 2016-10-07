@@ -11,11 +11,12 @@ package question.字符串处理;
  * </p>
  */
 public class Solution {
+
     private static final String a = "abcd";
     private static final String b = "dcab";
 
     public static void main(String[] args) {
-        anagram(a, b);
+        anagram(a,b);
     }
 
     /**
@@ -23,7 +24,7 @@ public class Solution {
      * @param b: The second string
      * @return true or false
      */
-    private static boolean anagram(String a, String b) {
+    private static boolean anagram(String a,String b) {
         // write your code here
 
         if (a.length() != b.length()) return false;
