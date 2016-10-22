@@ -6,7 +6,7 @@ package question.兔子数量;
  */
 public class RabbitNumber {
 
-    public static final int MONTH = 15;
+    private static final int MONTH = 15;
 
     public static void main(String[] args) {
         long f1 = 1L, f2 = 1L;

@@ -180,7 +180,7 @@ public class BinaryTree {
         }
     }
 
-    class Node <V> {
+    private class Node <V> {
 
         private V value;
         private Node<V> leftChild;

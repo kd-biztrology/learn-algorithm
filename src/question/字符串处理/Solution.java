@@ -50,8 +50,8 @@ public class Solution {
         }
 
         //if string a and b are anagrams, all the values in array letters should be 0
-        for (int i = 0; i < letters.length; i++) {
-            if (letters[i] != 0) {
+        for (int letter : letters) {
+            if (letter != 0) {
                 return false;
             }
         }
