@@ -14,7 +14,6 @@ public class BinaryTree {
 
   //数组构造器
   private BinaryTree(int[] values) {
-    System.out.print("--" + root.getLeftChild());
     System.out.print("新建binaryTree:");
     for (int i : values) {
       System.out.print(i);
